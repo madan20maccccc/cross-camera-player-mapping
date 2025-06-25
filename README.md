@@ -74,40 +74,54 @@ Create a folder in your Google Drive (e.g., `/MyDrive/int1/`) and upload:
 from google.colab import drive
 drive.mount('/content/drive')
 ```
+
 Then follow each code cell in the notebook to:
 
-Detect players
+- Detect players  
+- Crop images  
+- Extract CLIP embeddings  
+- Normalize positions  
+- Match tacticam players to broadcast players  
+- Save output
 
-Crop images
+### Step 3: Output
+Final mapping will be saved to:  
+`/content/player_mapping.csv`  
 
-Extract CLIP embeddings
-
-Normalize positions
-
-Match tacticam players to broadcast players
-
-Save output
-
-Step 3: Output
-Final mapping will be saved to:
-/content/player_mapping.csv
 You can export this to your Drive or GitHub for submission.
-📄 Output Format
-The output file player_mapping.csv contains:
 
-Column	Description
-frame	Frame number from tacticam video
-player_idx	Detected player index in that frame
-matched_broadcast_player	Closest matching player from broadcast view
+📄 **Output Format**  
+The output file `player_mapping.csv` contains:
 
-📌 Notes
-This project uses frame-wise matching only (no temporal tracking)
+| Column                  | Description                                 |
+|-------------------------|---------------------------------------------|
+| `frame`                 | Frame number from tacticam video            |
+| `player_idx`            | Detected player index in that frame         |
+| `matched_broadcast_player` | Closest matching player from broadcast view |
 
-DeepSORT or re-identification is not used — this is acceptable for Option 1 of the assignment
+📌 **Notes**
+- This project uses frame-wise matching only (no temporal tracking)  
+- DeepSORT or re-identification is not used — this is acceptable for Option 1 of the assignment  
+- CLIP embeddings and spatial normalization provide a strong match based on appearance + location  
+- Matching is qualitative (you can visualize the correctness using images)
 
-CLIP embeddings and spatial normalization provide a strong match based on appearance + location
+---
 
-Matching is qualitative (you can visualize the correctness using images)
+## 🔗 External Resources: Model & Input Videos
+
+The files required to run this project — including the YOLOv11 model weights (`best.pt`) and the input videos (`broadcast.mp4` and `tacticam.mp4`) — are too large to be uploaded directly to GitHub.
+
+You can download all these files from the following Google Drive folder:
+
+👉 [Download Model & Videos](https://drive.google.com/drive/folders/12K05YMEXg8jPWaRLKdtQ1yG5C6u6pFsb?usp=drive_link)
+
+### Instructions:
+
+1. Download the entire folder or individual files from the above link.  
+2. Place the downloaded files in the working directory or the appropriate path as specified in the notebook.  
+3. Then, run the notebook as instructed.
+
+---
 
 ## 🙋‍♂️ Author
 
@@ -123,4 +137,3 @@ Developed by **Madan. M**, B.Tech Artificial Intelligence & Data Science,
 **Amrita Vishwa Vidyapeetham**.
 
 > The project combines visual embeddings and spatial reasoning to identify corresponding players across two camera views of the same football match, without relying on tracking or re-identification models. The approach emphasizes interpretability and modularity over complexity.
-
