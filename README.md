@@ -119,7 +119,7 @@ All work was performed using **Python**, **Google Colab**, and **open-source mod
 - **NumPy, pandas, scikit-learn** for data handling and similarity scoring  
 - **OpenCV** for image processing and image cropping
 
-Developed by **Madan**, B.Tech Artificial Intelligence & Data Science,  
+Developed by **Madan. M**, B.Tech Artificial Intelligence & Data Science,  
 **Amrita Vishwa Vidyapeetham**.
 
 > The project combines visual embeddings and spatial reasoning to identify corresponding players across two camera views of the same football match, without relying on tracking or re-identification models. The approach emphasizes interpretability and modularity over complexity.
